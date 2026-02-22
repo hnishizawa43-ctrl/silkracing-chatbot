@@ -55,30 +55,30 @@ interface QuickActionsProps {
 
 export function QuickActions({ onSelect, disabled }: QuickActionsProps) {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-8 px-4 py-12 md:px-8">
+    <div className="flex h-full flex-col items-center justify-center gap-6 px-4 py-8 md:gap-8 md:px-8 md:py-12">
       {/* Hero */}
-      <div className="flex flex-col items-center gap-4 text-center">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary">
-          <span className="text-lg font-bold tracking-tight text-primary-foreground">S</span>
+      <div className="flex flex-col items-center gap-3 text-center md:gap-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary md:h-14 md:w-14">
+          <span className="text-base font-bold tracking-tight text-primary-foreground md:text-lg">S</span>
         </div>
         <div>
-          <h1 className="text-lg font-semibold tracking-tight text-foreground text-balance">
+          <h1 className="text-base font-semibold tracking-tight text-foreground text-balance md:text-lg">
             {"Silk Horse Club AIアシスタント"}
           </h1>
-          <p className="mt-1.5 max-w-xs text-[13px] leading-relaxed text-muted-foreground text-pretty">
+          <p className="mt-1 max-w-[260px] text-[13px] leading-relaxed text-muted-foreground text-pretty md:mt-1.5 md:max-w-xs">
             {"出走予定・レース結果・募集馬など、お気軽にお尋ねください。"}
           </p>
         </div>
       </div>
 
       {/* Quick Action Grid */}
-      <div className="grid w-full max-w-md grid-cols-2 gap-2.5 md:grid-cols-3">
+      <div className="grid w-full max-w-md grid-cols-2 gap-2 md:grid-cols-3 md:gap-2.5">
         {quickActions.map((action) => (
           <button
             key={action.label}
             disabled={disabled}
             onClick={() => onSelect(action.query)}
-            className="group flex flex-col items-start gap-1.5 rounded-lg border border-border bg-card p-3.5 text-left transition-all hover:border-primary/30 hover:bg-primary/[0.03] disabled:pointer-events-none disabled:opacity-50"
+            className="group flex flex-col items-start gap-1 rounded-lg border border-border bg-card p-3 text-left transition-all hover:border-primary/30 hover:bg-primary/[0.03] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 md:gap-1.5 md:p-3.5"
           >
             <action.icon className="h-4 w-4 text-primary/70 transition-colors group-hover:text-primary" />
             <div>

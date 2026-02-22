@@ -34,7 +34,7 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
   const canSend = value.trim().length > 0 && !isLoading
 
   return (
-    <div className="border-t border-border bg-background px-4 py-3 md:px-6">
+    <div className="border-t border-border bg-background px-3 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] md:px-6 md:py-3">
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -51,7 +51,7 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
             placeholder={"メッセージを入力..."}
             disabled={isLoading}
             rows={1}
-            className="w-full resize-none rounded-xl border border-input bg-card px-4 py-3 text-[13px] text-card-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-ring/40 disabled:opacity-50"
+            className="w-full resize-none rounded-xl border border-input bg-card px-3.5 py-2.5 text-sm text-card-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-ring/40 disabled:opacity-50 md:px-4 md:py-3 md:text-[13px]"
           />
         </div>
         <button

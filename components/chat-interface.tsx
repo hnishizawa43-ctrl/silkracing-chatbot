@@ -114,24 +114,24 @@ export function ChatInterface() {
       {/* Main Chat Area */}
       <div className="flex flex-1 flex-col min-w-0">
         {/* Top Bar */}
-        <header className="flex items-center gap-3 border-b border-border bg-background px-4 py-2.5">
+        <header className="flex items-center gap-3 border-b border-border bg-background px-3 py-2.5 md:px-4">
           <button
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
             onClick={() => setSidebarOpen(true)}
           >
-            <PanelLeft className="h-4 w-4" />
+            <PanelLeft className="h-[18px] w-[18px]" />
             <span className="sr-only">{"メニューを開く"}</span>
           </button>
           <div className="flex-1 min-w-0">
-            <h1 className="text-[13px] font-medium text-foreground truncate">
+            <h1 className="text-sm font-medium text-foreground truncate md:text-[13px]">
               {activeSessionId
                 ? sessions.find((s) => s.id === activeSessionId)?.title ?? "チャット"
                 : "新しい会話"}
             </h1>
           </div>
-          <div className="hidden items-center gap-1.5 md:flex">
+          <div className="flex items-center gap-1.5">
             <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-            <span className="text-[11px] text-muted-foreground">{"オンライン"}</span>
+            <span className="text-[10px] text-muted-foreground md:text-[11px]">{"オンライン"}</span>
           </div>
         </header>
 
