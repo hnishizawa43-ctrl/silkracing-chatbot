@@ -68,7 +68,24 @@ export function QuickActions({ onSelect, disabled }: QuickActionsProps) {
         <h2 className="text-base font-medium text-foreground md:text-lg">
           {"カテゴリ別よくあるご質問"}
         </h2>
-        <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2">
+
+        {/* Mobile: horizontal scroll chips */}
+        <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-2 sm:hidden">
+          {faqCategories.map((cat) => (
+            <button
+              key={cat.label}
+              disabled={disabled}
+              onClick={() => onSelect(cat.query)}
+              className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary/90 px-4 py-2 text-primary-foreground transition-all hover:bg-primary active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50"
+            >
+              <span className="whitespace-nowrap text-[13px]">{cat.label}</span>
+              <ChevronRight className="h-3.5 w-3.5 shrink-0 opacity-60" />
+            </button>
+          ))}
+        </div>
+
+        {/* Desktop: 2-column grid */}
+        <div className="hidden w-full gap-2 sm:grid sm:grid-cols-2">
           {faqCategories.map((cat) => (
             <button
               key={cat.label}
