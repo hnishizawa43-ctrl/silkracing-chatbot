@@ -75,10 +75,10 @@ export function QuickActions({ onSelect, disabled }: QuickActionsProps) {
               key={cat.label}
               disabled={disabled}
               onClick={() => onSelect(cat.query)}
-              className="group flex h-11 w-full items-center justify-between rounded-lg bg-primary/90 px-3 text-primary-foreground transition-all hover:bg-primary hover:shadow-md active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 md:h-12 md:px-4"
+              className="group flex min-h-11 w-full items-center justify-between rounded-lg bg-primary/90 px-3 py-2 text-primary-foreground transition-all hover:bg-primary hover:shadow-md active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 md:min-h-12 md:px-4"
             >
-              <span className="truncate text-[12px] md:text-[13px]">{cat.label}</span>
-              <ChevronRight className="ml-1 h-3.5 w-3.5 shrink-0 opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:opacity-100 md:h-4 md:w-4" />
+              <span className="text-[12px] leading-snug md:text-[13px]">{cat.label}</span>
+              <ChevronRight className="ml-1.5 h-3.5 w-3.5 shrink-0 opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:opacity-100 md:h-4 md:w-4" />
             </button>
           ))}
         </div>
