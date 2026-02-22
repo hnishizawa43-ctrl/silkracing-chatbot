@@ -72,9 +72,9 @@ export function ChatSidebar({
         <div className="px-3 py-2.5">
           <button
             onClick={onNewChat}
-            className="flex w-full items-center gap-2 rounded-lg bg-sidebar-primary/10 px-3 py-2.5 text-[13px] font-medium text-sidebar-primary transition-colors hover:bg-sidebar-primary/20 md:py-2 md:text-[12px]"
+            className="flex w-full items-center gap-2 rounded-lg bg-sidebar-primary/10 px-3 py-2.5 text-[13px] font-medium text-sidebar-primary transition-colors hover:bg-sidebar-primary/20"
           >
-            <Plus className="h-4 w-4 md:h-3.5 md:w-3.5" />
+            <Plus className="h-4 w-4" />
             <span>{"新しいチャット"}</span>
           </button>
         </div>
@@ -92,7 +92,7 @@ export function ChatSidebar({
                 key={session.id}
                 onClick={() => onSelectSession(session.id)}
                 className={cn(
-                  "flex w-full items-start gap-2.5 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-sidebar-accent md:py-2",
+                  "flex w-full items-start gap-2.5 rounded-lg px-3 py-2.5 text-left transition-colors hover:bg-sidebar-accent",
                   activeSessionId === session.id
                     ? "bg-sidebar-accent text-sidebar-accent-foreground"
                     : "text-sidebar-foreground/70"
@@ -100,8 +100,8 @@ export function ChatSidebar({
               >
                 <MessageSquare className="mt-0.5 h-3.5 w-3.5 shrink-0 opacity-50" />
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[13px] font-medium md:text-[12px]">{session.title}</p>
-                  <p className="mt-0.5 truncate text-[11px] opacity-40 md:text-[10px]">{session.date}</p>
+                  <p className="truncate text-[13px] font-medium">{session.title}</p>
+                  <p className="mt-0.5 truncate text-[11px] opacity-40">{session.date}</p>
                 </div>
               </button>
             ))}

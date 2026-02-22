@@ -29,7 +29,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
   }
 
   return (
-    <div className="mx-auto flex max-w-2xl flex-col gap-4 px-3 py-4 md:gap-5 md:px-6 md:py-6">
+    <div className="mx-auto flex max-w-2xl flex-col gap-4 px-3 py-4">
       {messages.map((message) => {
         const isUser = message.role === "user"
         const text = getMessageText(message)
@@ -50,7 +50,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
             {/* Bubble */}
             <div
               className={cn(
-                "max-w-[88%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed md:max-w-[75%] md:px-4 md:py-3 md:text-[13px]",
+                "max-w-[88%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed",
                 isUser
                   ? "rounded-br-md bg-primary text-primary-foreground"
                   : "rounded-bl-md bg-secondary text-secondary-foreground ring-1 ring-border"
