@@ -130,7 +130,7 @@ export function ChatInterface() {
             </h1>
           </div>
           <div className="flex items-center gap-1.5">
-            <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            <div className="h-1.5 w-1.5 rounded-full bg-primary" />
             <span className="text-[10px] text-muted-foreground md:text-[11px]">{"オンライン"}</span>
           </div>
         </header>
