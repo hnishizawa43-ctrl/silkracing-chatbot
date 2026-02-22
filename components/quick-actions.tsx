@@ -69,32 +69,16 @@ export function QuickActions({ onSelect, disabled }: QuickActionsProps) {
           {"カテゴリ別よくあるご質問"}
         </h2>
 
-        {/* Mobile: horizontal scroll chips */}
-        <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-2 sm:hidden">
+        <div className="grid w-full grid-cols-2 gap-2">
           {faqCategories.map((cat) => (
             <button
               key={cat.label}
               disabled={disabled}
               onClick={() => onSelect(cat.query)}
-              className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary/90 px-4 py-2 text-primary-foreground transition-all hover:bg-primary active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50"
+              className="group flex w-full items-center justify-between rounded-lg bg-primary/90 px-3 py-2.5 text-primary-foreground transition-all hover:bg-primary hover:shadow-md active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 md:px-4 md:py-3"
             >
-              <span className="whitespace-nowrap text-[13px]">{cat.label}</span>
-              <ChevronRight className="h-3.5 w-3.5 shrink-0 opacity-60" />
-            </button>
-          ))}
-        </div>
-
-        {/* Desktop: 2-column grid */}
-        <div className="hidden w-full gap-2 sm:grid sm:grid-cols-2">
-          {faqCategories.map((cat) => (
-            <button
-              key={cat.label}
-              disabled={disabled}
-              onClick={() => onSelect(cat.query)}
-              className="group flex w-full items-center justify-between rounded-lg bg-primary/90 px-4 py-3 text-primary-foreground transition-all hover:bg-primary hover:shadow-md active:scale-[0.99] disabled:pointer-events-none disabled:opacity-50"
-            >
-              <span className="text-[13px]">{cat.label}</span>
-              <ChevronRight className="h-4 w-4 shrink-0 opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:opacity-100" />
+              <span className="text-[12px] leading-tight md:text-[13px]">{cat.label}</span>
+              <ChevronRight className="h-3.5 w-3.5 shrink-0 opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:opacity-100 md:h-4 md:w-4" />
             </button>
           ))}
         </div>
