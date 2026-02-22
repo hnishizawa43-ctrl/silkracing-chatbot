@@ -1,5 +1,11 @@
 import { ChatInterface } from "@/components/chat-interface"
 
 export default function Home() {
-  return <ChatInterface />
+  return (
+    <div className="flex min-h-dvh items-center justify-center bg-muted/40 p-4">
+      <div className="flex h-[min(700px,calc(100dvh-2rem))] w-full max-w-[420px] flex-col overflow-hidden rounded-2xl bg-background shadow-2xl ring-1 ring-border">
+        <ChatInterface />
+      </div>
+    </div>
+  )
 }

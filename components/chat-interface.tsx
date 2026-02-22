@@ -100,7 +100,7 @@ export function ChatInterface() {
   )
 
   return (
-    <div className="flex h-dvh w-full overflow-hidden bg-background">
+    <div className="flex h-full w-full overflow-hidden bg-background">
       {/* Sidebar */}
       <ChatSidebar
         sessions={sessions}
@@ -116,7 +116,7 @@ export function ChatInterface() {
         {/* Top Bar */}
         <header className="flex items-center gap-3 border-b border-border bg-background px-3 py-2.5 md:px-4">
           <button
-            className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             onClick={() => setSidebarOpen(true)}
           >
             <PanelLeft className="h-[18px] w-[18px]" />

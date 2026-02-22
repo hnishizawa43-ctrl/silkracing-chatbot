@@ -52,10 +52,10 @@ interface QuickActionsProps {
 
 export function QuickActions({ onSelect, disabled }: QuickActionsProps) {
   return (
-    <div className="flex h-full flex-col gap-6 overflow-y-auto px-4 py-8 md:justify-center md:px-8 md:py-12">
+    <div className="flex h-full flex-col gap-5 overflow-y-auto px-4 py-6">
       {/* Hero */}
       <div className="flex flex-col gap-2">
-        <h1 className="text-base font-semibold tracking-tight text-foreground text-balance md:text-lg">
+        <h1 className="text-base font-semibold tracking-tight text-foreground text-balance">
           {"Silk Horse Club AIアシスタント"}
         </h1>
         <p className="max-w-sm text-[13px] leading-relaxed text-muted-foreground text-pretty">
@@ -65,7 +65,7 @@ export function QuickActions({ onSelect, disabled }: QuickActionsProps) {
 
       {/* FAQ Categories */}
       <div className="flex w-full max-w-2xl flex-col gap-3">
-        <h2 className="text-base font-medium text-foreground md:text-lg">
+        <h2 className="text-sm font-medium text-foreground">
           {"カテゴリ別よくあるご質問"}
         </h2>
 
@@ -75,10 +75,10 @@ export function QuickActions({ onSelect, disabled }: QuickActionsProps) {
               key={cat.label}
               disabled={disabled}
               onClick={() => onSelect(cat.query)}
-              className="group flex h-10 w-full items-center justify-between rounded-lg bg-primary/90 px-2.5 text-primary-foreground transition-all hover:bg-primary hover:shadow-md active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 md:h-12 md:px-4"
+              className="group flex h-10 w-full items-center justify-between rounded-lg bg-primary/90 px-2.5 text-primary-foreground transition-all hover:bg-primary active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
             >
-              <span className="whitespace-nowrap text-[11px] md:text-[13px]">{cat.label}</span>
-              <ChevronRight className="ml-1 hidden h-4 w-4 shrink-0 opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:opacity-100 sm:block" />
+              <span className="whitespace-nowrap text-[11px]">{cat.label}</span>
+              <ChevronRight className="ml-1 h-3.5 w-3.5 shrink-0 opacity-50" />
             </button>
           ))}
         </div>
