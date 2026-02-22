@@ -53,7 +53,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                 "max-w-[88%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed md:max-w-[75%] md:px-4 md:py-3 md:text-[13px]",
                 isUser
                   ? "rounded-br-md bg-primary text-primary-foreground"
-                  : "rounded-bl-md bg-card text-card-foreground shadow-sm ring-1 ring-border"
+                  : "rounded-bl-md bg-secondary text-secondary-foreground ring-1 ring-border"
               )}
             >
               <div className="whitespace-pre-wrap break-words">{text}</div>
@@ -68,7 +68,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
           <span className="px-1 text-[11px] font-medium text-muted-foreground">
             Silk AI
           </span>
-          <div className="rounded-2xl rounded-bl-md bg-card shadow-sm ring-1 ring-border px-4 py-3.5">
+          <div className="rounded-2xl rounded-bl-md bg-secondary ring-1 ring-border px-4 py-3.5">
             <div className="flex items-center gap-1.5">
               <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground/50 [animation-delay:0ms]" />
               <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground/50 [animation-delay:150ms]" />

@@ -1,16 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import {
   Plus,
   MessageSquare,
   X,
-  Sun,
-  Moon,
 } from "lucide-react"
-import { useTheme } from "next-themes"
 
 export interface ChatSession {
   id: string
@@ -36,13 +32,6 @@ export function ChatSidebar({
   isOpen,
   onClose,
 }: ChatSidebarProps) {
-  const { resolvedTheme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
   return (
     <>
       {/* Mobile overlay */}
@@ -119,30 +108,8 @@ export function ChatSidebar({
           </div>
         </ScrollArea>
 
-        {/* Footer */}
-        <div className="border-t border-sidebar-border px-3 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))]">
-          <button
-            className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-[13px] text-sidebar-foreground/50 transition-colors hover:bg-sidebar-accent hover:text-sidebar-foreground md:py-2 md:text-[12px]"
-            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-          >
-            {mounted ? (
-              resolvedTheme === "dark" ? (
-                <Sun className="h-4 w-4 md:h-3.5 md:w-3.5" />
-              ) : (
-                <Moon className="h-4 w-4 md:h-3.5 md:w-3.5" />
-              )
-            ) : (
-              <div className="h-4 w-4 md:h-3.5 md:w-3.5" />
-            )}
-            <span>
-              {mounted
-                ? resolvedTheme === "dark"
-                  ? "ライトモード"
-                  : "ダークモード"
-                : "\u00A0"}
-            </span>
-          </button>
-        </div>
+        {/* Footer spacer for safe area */}
+        <div className="pb-[env(safe-area-inset-bottom)]" />
       </aside>
     </>
   )

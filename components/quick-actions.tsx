@@ -63,21 +63,21 @@ export function QuickActions({ onSelect, disabled }: QuickActionsProps) {
         </p>
       </div>
 
-      {/* FAQ Categories - matching official site layout */}
+      {/* FAQ Categories */}
       <div className="flex w-full max-w-2xl flex-col gap-3">
-        <h2 className="text-lg font-medium text-foreground md:text-xl">
+        <h2 className="text-base font-medium text-foreground md:text-lg">
           {"カテゴリ別よくあるご質問"}
         </h2>
-        <div className="grid w-full grid-cols-1 gap-2.5 sm:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2">
           {faqCategories.map((cat) => (
             <button
               key={cat.label}
               disabled={disabled}
               onClick={() => onSelect(cat.query)}
-              className="flex w-full items-center justify-between bg-primary px-5 py-3.5 text-primary-foreground transition-opacity hover:opacity-90 active:opacity-80 disabled:pointer-events-none disabled:opacity-50"
+              className="group flex w-full items-center justify-between rounded-lg bg-primary/90 px-4 py-3 text-primary-foreground transition-all hover:bg-primary hover:shadow-md active:scale-[0.99] disabled:pointer-events-none disabled:opacity-50"
             >
-              <span className="text-[14px] font-normal">{cat.label}</span>
-              <ChevronRight className="h-4 w-4 shrink-0 opacity-80" />
+              <span className="text-[13px]">{cat.label}</span>
+              <ChevronRight className="h-4 w-4 shrink-0 opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:opacity-100" />
             </button>
           ))}
         </div>

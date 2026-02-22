@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Noto_Sans_JP, Geist_Mono } from 'next/font/google'
-import { ThemeProvider } from '@/components/theme-provider'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -13,10 +12,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#2a3a4a' },
-    { media: '(prefers-color-scheme: dark)', color: '#1a2a3a' },
-  ],
+  themeColor: '#ffffff',
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
@@ -28,11 +24,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html lang="ja">
       <body className={`${_notoSansJP.variable} ${_geistMono.variable} font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+        {children}
         <Analytics />
       </body>
     </html>
