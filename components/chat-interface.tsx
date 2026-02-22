@@ -8,8 +8,7 @@ import { MessageList } from "@/components/message-list"
 import { MessageInput } from "@/components/message-input"
 import { QuickActions } from "@/components/quick-actions"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Button } from "@/components/ui/button"
-import { Menu } from "lucide-react"
+import { PanelLeft } from "lucide-react"
 
 function getMessageText(parts: Array<{ type: string; text?: string }>): string {
   return parts
@@ -37,12 +36,11 @@ export function ChatInterface() {
     setInput("")
     sendMessage({ text })
 
-    // Create or update session
     if (!activeSessionId) {
       const newId = Date.now().toString()
       const newSession: ChatSession = {
         id: newId,
-        title: text.length > 30 ? text.slice(0, 30) + "..." : text,
+        title: text.length > 25 ? text.slice(0, 25) + "..." : text,
         date: new Date().toLocaleDateString("ja-JP"),
         preview: text,
       }
@@ -60,7 +58,7 @@ export function ChatInterface() {
         const newId = Date.now().toString()
         const newSession: ChatSession = {
           id: newId,
-          title: query.length > 30 ? query.slice(0, 30) + "..." : query,
+          title: query.length > 25 ? query.slice(0, 25) + "..." : query,
           date: new Date().toLocaleDateString("ja-JP"),
           preview: query,
         }
@@ -72,14 +70,13 @@ export function ChatInterface() {
   )
 
   const handleNewChat = useCallback(() => {
-    // Save current messages to the session if needed
     if (activeSessionId && messages.length > 0) {
       const lastMsg = messages[messages.length - 1]
       const preview = getMessageText(lastMsg.parts)
       setSessions((prev) =>
         prev.map((s) =>
           s.id === activeSessionId
-            ? { ...s, preview: preview.slice(0, 60) }
+            ? { ...s, preview: preview.slice(0, 50) }
             : s
         )
       )
@@ -95,7 +92,6 @@ export function ChatInterface() {
         setSidebarOpen(false)
         return
       }
-      // For demo purposes, just switch to the session
       setActiveSessionId(id)
       setMessages([])
       setSidebarOpen(false)
@@ -118,22 +114,24 @@ export function ChatInterface() {
       {/* Main Chat Area */}
       <div className="flex flex-1 flex-col min-w-0">
         {/* Top Bar */}
-        <header className="flex items-center gap-3 border-b border-border bg-background/80 backdrop-blur-sm px-4 py-3">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
+        <header className="flex items-center gap-3 border-b border-border bg-background px-4 py-2.5">
+          <button
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
             onClick={() => setSidebarOpen(true)}
           >
-            <Menu className="h-5 w-5" />
-            <span className="sr-only">Open menu</span>
-          </Button>
+            <PanelLeft className="h-4 w-4" />
+            <span className="sr-only">{"メニューを開く"}</span>
+          </button>
           <div className="flex-1 min-w-0">
-            <h1 className="text-sm font-semibold text-foreground truncate">
+            <h1 className="text-[13px] font-medium text-foreground truncate">
               {activeSessionId
-                ? sessions.find((s) => s.id === activeSessionId)?.title ?? "Chat"
-                : "New Conversation"}
+                ? sessions.find((s) => s.id === activeSessionId)?.title ?? "チャット"
+                : "新しい会話"}
             </h1>
+          </div>
+          <div className="hidden items-center gap-1.5 md:flex">
+            <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            <span className="text-[11px] text-muted-foreground">{"オンライン"}</span>
           </div>
         </header>
 

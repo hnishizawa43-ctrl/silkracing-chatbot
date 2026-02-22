@@ -1,8 +1,8 @@
 "use client"
 
 import { useRef, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { SendHorizontal } from "lucide-react"
+import { ArrowUp } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 interface MessageInputProps {
   value: string
@@ -18,7 +18,7 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
     const ta = textareaRef.current
     if (ta) {
       ta.style.height = "auto"
-      ta.style.height = `${Math.min(ta.scrollHeight, 160)}px`
+      ta.style.height = `${Math.min(ta.scrollHeight, 140)}px`
     }
   }, [value])
 
@@ -31,16 +31,16 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
     }
   }
 
+  const canSend = value.trim().length > 0 && !isLoading
+
   return (
-    <div className="border-t border-border bg-background/80 backdrop-blur-sm px-4 py-3 md:px-6">
+    <div className="border-t border-border bg-background px-4 py-3 md:px-6">
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          if (value.trim() && !isLoading) {
-            onSubmit()
-          }
+          if (canSend) onSubmit()
         }}
-        className="mx-auto flex max-w-3xl items-end gap-2"
+        className="mx-auto flex max-w-2xl items-end gap-2"
       >
         <div className="relative flex-1">
           <textarea
@@ -48,22 +48,29 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
             value={value}
             onChange={(e) => onChange(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Message..."
+            placeholder={"メッセージを入力..."}
             disabled={isLoading}
             rows={1}
-            className="w-full resize-none rounded-xl border border-input bg-card px-4 py-3 pr-12 text-sm text-card-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50"
+            className="w-full resize-none rounded-xl border border-input bg-card px-4 py-3 text-[13px] text-card-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-ring/40 disabled:opacity-50"
           />
         </div>
-        <Button
+        <button
           type="submit"
-          size="icon"
-          disabled={!value.trim() || isLoading}
-          className="h-11 w-11 shrink-0 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90"
+          disabled={!canSend}
+          className={cn(
+            "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all",
+            canSend
+              ? "bg-primary text-primary-foreground hover:bg-primary/90"
+              : "bg-muted text-muted-foreground"
+          )}
         >
-          <SendHorizontal className="h-4 w-4" />
-          <span className="sr-only">Send message</span>
-        </Button>
+          <ArrowUp className="h-4 w-4" />
+          <span className="sr-only">{"送信"}</span>
+        </button>
       </form>
+      <p className="mx-auto mt-1.5 max-w-2xl text-center text-[10px] text-muted-foreground/50">
+        {"AIの回答は参考情報です。正確な情報は公式サイトをご確認ください。"}
+      </p>
     </div>
   )
 }

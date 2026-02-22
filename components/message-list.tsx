@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react"
 import type { UIMessage } from "ai"
 import { cn } from "@/lib/utils"
-import { Bot, User } from "lucide-react"
 
 function getMessageText(message: UIMessage): string {
   if (!message.parts || !Array.isArray(message.parts)) return ""
@@ -30,7 +29,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
   }
 
   return (
-    <div className="flex flex-col gap-4 px-4 py-6 md:px-6">
+    <div className="mx-auto flex max-w-2xl flex-col gap-5 px-4 py-6 md:px-6">
       {messages.map((message) => {
         const isUser = message.role === "user"
         const text = getMessageText(message)
@@ -38,31 +37,23 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
         return (
           <div
             key={message.id}
-            className={cn("flex gap-3", isUser ? "flex-row-reverse" : "flex-row")}
+            className={cn(
+              "flex flex-col gap-1",
+              isUser ? "items-end" : "items-start"
+            )}
           >
-            {/* Avatar */}
-            <div
-              className={cn(
-                "flex h-8 w-8 shrink-0 items-center justify-center rounded-full",
-                isUser
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-accent text-accent-foreground"
-              )}
-            >
-              {isUser ? (
-                <User className="h-4 w-4" />
-              ) : (
-                <Bot className="h-4 w-4" />
-              )}
-            </div>
+            {/* Label */}
+            <span className="px-1 text-[11px] font-medium text-muted-foreground">
+              {isUser ? "You" : "Silk AI"}
+            </span>
 
             {/* Bubble */}
             <div
               className={cn(
-                "max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed md:max-w-[70%]",
+                "max-w-[85%] rounded-2xl px-4 py-3 text-[13px] leading-relaxed md:max-w-[75%]",
                 isUser
-                  ? "rounded-tr-sm bg-primary text-primary-foreground"
-                  : "rounded-tl-sm bg-card text-card-foreground border border-border"
+                  ? "rounded-br-md bg-primary text-primary-foreground"
+                  : "rounded-bl-md bg-card text-card-foreground shadow-sm ring-1 ring-border"
               )}
             >
               <div className="whitespace-pre-wrap break-words">{text}</div>
@@ -73,15 +64,15 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
 
       {/* Loading indicator */}
       {isLoading && messages[messages.length - 1]?.role === "user" && (
-        <div className="flex gap-3">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
-            <Bot className="h-4 w-4" />
-          </div>
-          <div className="rounded-2xl rounded-tl-sm bg-card text-card-foreground border border-border px-4 py-3">
-            <div className="flex items-center gap-1">
-              <div className="h-2 w-2 animate-bounce rounded-full bg-muted-foreground/60 [animation-delay:0ms]" />
-              <div className="h-2 w-2 animate-bounce rounded-full bg-muted-foreground/60 [animation-delay:150ms]" />
-              <div className="h-2 w-2 animate-bounce rounded-full bg-muted-foreground/60 [animation-delay:300ms]" />
+        <div className="flex flex-col items-start gap-1">
+          <span className="px-1 text-[11px] font-medium text-muted-foreground">
+            Silk AI
+          </span>
+          <div className="rounded-2xl rounded-bl-md bg-card shadow-sm ring-1 ring-border px-4 py-3.5">
+            <div className="flex items-center gap-1.5">
+              <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground/50 [animation-delay:0ms]" />
+              <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground/50 [animation-delay:150ms]" />
+              <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground/50 [animation-delay:300ms]" />
             </div>
           </div>
         </div>
