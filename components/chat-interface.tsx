@@ -154,12 +154,14 @@ export function ChatInterface() {
         </header>
 
         {/* Messages */}
-        <ScrollArea className="flex-1">
-          {messages.length === 0 ? (
-            <QuickActions onSelect={handleQuickAction} disabled={isLoading} />
-          ) : (
-            <MessageList messages={messages} isLoading={isLoading} />
-          )}
+        <ScrollArea className="flex-1 overflow-hidden">
+          <div className="h-full overflow-y-auto">
+            {messages.length === 0 ? (
+              <QuickActions onSelect={handleQuickAction} disabled={isLoading} />
+            ) : (
+              <MessageList messages={messages} isLoading={isLoading} />
+            )}
+          </div>
         </ScrollArea>
 
         {/* Input */}
