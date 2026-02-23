@@ -12,22 +12,28 @@ function getMessageText(message: UIMessage): string {
     .join("")
 }
 
-const URL_REGEX = /(https?:\/\/[^\s]+)/g
+// URLとして有効な文字のみマッチ（日本語・全角文字・句読点・括弧で区切る）
+const URL_REGEX = /(https?:\/\/[A-Za-z0-9\-._~:/?#\[\]@!$&'()*+,;=%]+)/g
 
 function renderTextWithLinks(text: string): ReactNode[] {
   const parts = text.split(URL_REGEX)
   return parts.map((part, i) => {
     if (URL_REGEX.test(part)) {
+      // 末尾の句読点や括弧を除去
+      const cleaned = part.replace(/[)）。、」』】]+$/, "")
+      const trailing = part.slice(cleaned.length)
       return (
-        <a
-          key={i}
-          href={part}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline underline-offset-2 break-all hover:opacity-70 transition-opacity"
-        >
-          {part}
-        </a>
+        <span key={i}>
+          <a
+            href={cleaned}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline underline-offset-2 break-all hover:opacity-70 transition-opacity"
+          >
+            {cleaned}
+          </a>
+          {trailing}
+        </span>
       )
     }
     return <span key={i}>{part}</span>
