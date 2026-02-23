@@ -5,7 +5,7 @@ export default function Home() {
     <main className="flex min-h-dvh flex-col items-center justify-center bg-secondary px-4">
       <div className="flex flex-col items-center gap-4 text-center">
         <h1 className="text-3xl font-bold tracking-tight text-foreground">
-          Silk Racing AI
+          Silk AI
         </h1>
         <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
           {"※デモ画面です"}
