@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, useCallback } from "react"
 import { ArrowUp } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -13,6 +13,7 @@ interface MessageInputProps {
 
 export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const lastEnterTimeRef = useRef<number>(0)
 
   useEffect(() => {
     const ta = textareaRef.current
@@ -22,14 +23,27 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
     }
   }, [value])
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault()
-      if (value.trim() && !isLoading) {
-        onSubmit()
+  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+      const now = Date.now()
+      const timeSinceLastEnter = now - lastEnterTimeRef.current
+      lastEnterTimeRef.current = now
+
+      // If Enter was pressed within 500ms of the last Enter, send the message
+      if (timeSinceLastEnter < 500) {
+        e.preventDefault()
+        // Remove the trailing newline that was added by the first Enter press
+        const trimmedValue = value.replace(/\n$/, "")
+        if (trimmedValue.trim() && !isLoading) {
+          onChange(trimmedValue)
+          // Use setTimeout to ensure state update before submit
+          setTimeout(() => onSubmit(), 0)
+        }
+        return
       }
+      // First Enter press: allow default behavior (newline)
     }
-  }
+  }, [value, isLoading, onChange, onSubmit])
 
   const canSend = value.trim().length > 0 && !isLoading
 
@@ -69,7 +83,7 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
         </button>
       </form>
       <p className="mx-auto mt-1.5 max-w-2xl text-center text-[10px] text-muted-foreground/50">
-        {"AIの回答は参考情報です。正確な情報は公式サイトをご確認ください。"}
+        {"Enterで改行 / 素早くEnter2回で送信 / AIの回答は参考情報です"}
       </p>
     </div>
   )
