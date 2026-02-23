@@ -58,6 +58,7 @@
     maxHeight: "calc(100dvh - 120px)",
     borderRadius: "16px",
     overflow: "hidden",
+    background: "#ffffff",
     boxShadow: "0 8px 40px rgba(0,0,0,0.18)",
     display: "none",
     opacity: "0",
