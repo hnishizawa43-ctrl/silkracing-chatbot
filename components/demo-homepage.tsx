@@ -25,11 +25,6 @@ export function DemoHomepage() {
 
       {/* Empty main area */}
       <main className="flex-1 bg-gradient-to-br from-sky-50 to-white" />
-
-      {/* Minimal footer hint */}
-      <div className="shrink-0 border-t border-gray-100 bg-gray-50 px-6 py-3 text-center text-xs text-gray-400">
-        {"※デモ画面です  |  右下のチャットアイコンをクリックしてAIアシスタントをお試しください"}
-      </div>
     </div>
   )
 }
