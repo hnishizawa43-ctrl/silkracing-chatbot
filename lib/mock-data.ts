@@ -284,7 +284,7 @@ export const faqData = [
     answer:
       "具体的な審査基準は公開されておりませんが、入会にあたっては所定の審査がございます。詳しくは公式サイトの入会ページまたはお問い合わせフォームからご確認ください。",
   },
-  // ===== ���グイン・ホームページについて =====
+  // ===== �����グイン・ホームページについて =====
   {
     category: "ログイン・HP",
     question: "ログインできません",
@@ -413,7 +413,7 @@ export const faqData = [
     category: "確定申告・交付書面",
     question: "赤字（損失）が出た場合、他の所得と損益通算できますか？",
     answer:
-      "一口馬主の所��は「��所得」に分類されるため、給与所得や事業所得との損益通算はできません。ただし、同じ雑所得内（複数の出資馬間）での損益通算は可能です。",
+      "一口馬主の����は「��所得」に分類されるため、給与所得や事業所得との損益通算はできません。ただし、同じ雑所得内（複数の出資馬間）での損益通算は可能です。",
   },
   // ===== ご精算について =====
   {
@@ -470,7 +470,7 @@ export const faqData = [
     category: "郵送物",
     question: "郵送物を止めることはできますか？",
     answer:
-      "法令上必要な書面は郵送が必須です。その他のお知らせ等については、マイページの設定でデジタル版への切替が可能な場合があります。詳しくはお問い合わせください。",
+      "法令上必要な書面は郵送が必須です。その他のお知らせ等については、マイページの設定でデジタル版への切替が可能な場合があります。詳しくは���問い合わせください。",
   },
   // ===== マネロン等防止について =====
   {
@@ -533,11 +533,13 @@ export function buildSystemPrompt(): string {
   - 2012年にノーザンファームに入社し、2013年からシルクレーシング取締役、2014年に代表取締役に就任
   - 元不動産開発業の経歴を持つ
 - 愛馬会法人代表者: 米本晃子（ノーザンファーム代表・吉田勝己の娘）
-- 本社所在地: 東京都港区赤坂3-11-3 赤坂中川ビルディング501号
+- 本社所在地: 東京都港区赤坂八丁目5番34号 TODA BUILDING 青山 2F
 - 設立: 1985年（昭和60年）にクラブ法人「有限会社シルク」として創業
 - 2013年に法人名を「有限会社シルクレーシング」に改称
-- 資本金: 1,000万円
-- 登録番号: 関東財務局長（金商）第1591���
+- 資本金（クラブ法人）: 1,000万円
+- 資本金（愛馬会法人）: 5,000万円
+- 登録番号（クラブ法人）: 関東財務局長（金商）第1591号
+- 登録番号（愛馬会法人）: 関東財務局長（金商）第1601���
 - JRA馬主登録のクラブ法人（匿名組合契約に基づく競走馬ファンド）
 - 勝負服: 水色、赤玉霰、袖赤一本輪
 - 募集口数: 500口
@@ -567,7 +569,7 @@ export function buildSystemPrompt(): string {
 - ラウダシオン: NHKマイルC優勝
 - ピクシーナイト: スプリンターズS優勝
 - アーバンシック: 菊花賞優勝
-- エンブロイダリー: 桜花賞・秋華賞優勝
+- エ��ブロイダリー: 桜花賞・秋華賞優勝
 - エネルジコ: 菊花賞優勝
 - カヴァレリッツォ: 朝日杯FS優勝
 - ダブルハートボンド: チャンピオンズC優勝
@@ -662,25 +664,16 @@ ${faqInfo}
 【公式リンク集 - 回答時に必ず該当URLを案内すること】
 - トップページ: https://www.silkhorseclub.jp/
 - はじめての方へ（入会案内トップ）: https://www.silkhorseclub.jp/beginner
-- 愛馬に安心して出資できるよろこび: https://www.silkhorseclub.jp/beginner/investment
-- 愛馬の成長を見守るよろこび: https://www.silkhorseclub.jp/beginner/growth
-- 愛馬がつなぐ仲間と出会うよろこび: https://www.silkhorseclub.jp/beginner/community
-- 活躍馬: https://www.silkhorseclub.jp/beginner/horse
-- 会社概要: https://www.silkhorseclub.jp/beginner/company
-- ご入会までの流れと特典: https://www.silkhorseclub.jp/beginner/member
-- SFunC利用登録について: https://www.silkhorseclub.jp/beginner/sfunc
 - 入会のお申し込みについて: https://www.silkhorseclub.jp/beginner/member_application
-- 募集の流れ: https://www.silkhorseclub.jp/beginner/offer
 - 出資と分配の仕組み: https://www.silkhorseclub.jp/beginner/mechanism
-- 募集馬の見方: https://www.silkhorseclub.jp/beginner/how_to_read
 - よくあるご質問（FAQ）: https://www.silkhorseclub.jp/qa
-- SFunC（Silk Fun Club）サイト: https://sfunc.silkhorseclub.jp/
 - JRA公式サイト: https://www.jra.go.jp/
-- ノーザンホースパーク: https://www.northern-horsepark.jp/
+※上記以外のURL（/mypage、/contact、/horse/offer 等）は存在しない可能性があるため、案内しないこと。
+※詳細ページへの案内が必要な場合は、上記の確認済みURLのみを使用し、「公式サイトのトップページ（https://www.silkhorseclub.jp/）からご確認ください」と案内すること。
 
 上記の情報を中心に回答してください。以下のガイドラインに従ってください:
 
-1. 【具体的に回答】費用、手続き、スケジュールなど、数字や手順を含めた具体的な回答を心がけてください。
+1. 【具体的に回答】費���、手続き、スケジュールなど、数字や手順を含めた具体的な回答を心がけてください。
 2. 【カテゴリ横断】質問が複数カテゴリにまたがる場合は、関連する全ての情報を統合し��回答してください。
 3. 【計算例】分配金や費用の質問には、可能な範囲で具体的な計算例を示してください。
 4. 【一般知識も活用】シルクレーシングの歴史、代表者、名馬、競馬全般の知識も活用して回答してください。
