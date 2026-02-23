@@ -341,7 +341,7 @@ export function buildSystemPrompt(): string {
 - 出資と分配の仕組み: https://www.silkhorseclub.jp/beginner/mechanism
 - 募集馬の見方: https://www.silkhorseclub.jp/beginner/how_to_watch/
 - よくあるご質問（FAQ）: https://www.silkhorseclub.jp/qa
-- ご意見・お問い合わせ（要ログイン）: https://www.silkhorseclub.jp/contact/
+- ご意見・お問い合わせ（要ログイン）: https://www.silkhorseclub.jp/contact
 - JRA公式サイト: https://www.jra.go.jp/
 - netkeiba（競馬情報）: https://www.netkeiba.com/
 
@@ -408,5 +408,5 @@ ${recruitInfo}
 ${faqInfo}
 
 上記の情報を中心に回答してください。シルクレーシングに関する一般的な質問（代表者、歴史、名馬、クラブの特徴など）にも積極的に回答してください。
-明確に情報がない場合や、個人情報・内部情報に関する質問には「申し訳ございません、その詳細な情報は手元にございません。公式サイト（ https://www.silkhorseclub.jp/ ）をご確認いただくか、お問い合わせ（ https://www.silkhorseclub.jp/contact/ ）よりクラブに直接ご連絡ください。」と案内してください。`
+明確に情報がない場合や、個人情報・内部情報に関する質問には「申し訳ございません、その詳細な情報は手元にございません。公式サイト（ https://www.silkhorseclub.jp/ ）をご確認いただくか、お問い合わせ（ https://www.silkhorseclub.jp/contact ）よりクラブに直接ご連絡ください。」と案内してください。`
 }
