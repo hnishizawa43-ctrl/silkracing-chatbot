@@ -139,35 +139,7 @@
 
   btn.addEventListener("click", toggle);
 
-  // --- Mobile responsive ---
-  var mq = window.matchMedia("(max-width: 480px)");
-  function applyMobile(e) {
-    if (e.matches) {
-      Object.assign(container.style, {
-        bottom: "0",
-        right: "0",
-        width: "100vw",
-        height: "100dvh",
-        maxWidth: "100vw",
-        maxHeight: "100dvh",
-        borderRadius: "0",
-      });
-      iframe.style.borderRadius = "0";
-    } else {
-      Object.assign(container.style, {
-        bottom: "100px",
-        right: "24px",
-        width: "380px",
-        height: "min(560px, calc(100dvh - 140px))",
-        maxWidth: "calc(100vw - 32px)",
-        maxHeight: "calc(100dvh - 140px)",
-        borderRadius: "16px",
-      });
-      iframe.style.borderRadius = "16px";
-    }
-  }
-  mq.addEventListener("change", applyMobile);
-  applyMobile(mq);
+
 
   // --- Inject ---
   document.body.appendChild(container);
