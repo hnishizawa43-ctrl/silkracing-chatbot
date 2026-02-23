@@ -83,7 +83,7 @@ export function SidebarPanel({
                 >
                   <MessageSquare className="mt-0.5 h-3.5 w-3.5 shrink-0 opacity-50" />
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-[13px] font-medium">{session.title}</p>
+                    <p className="text-[13px] font-medium leading-snug break-words">{session.title}</p>
                     <p className="mt-0.5 truncate text-[11px] opacity-40">{session.date}</p>
                   </div>
                 </button>

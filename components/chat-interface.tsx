@@ -59,7 +59,7 @@ export function ChatInterface() {
       const newId = Date.now().toString()
       const newSession: ChatSession = {
         id: newId,
-        title: text.length > 20 ? text.slice(0, 20) + "..." : text,
+        title: text,
         date: new Date().toLocaleDateString("ja-JP"),
         preview: text,
       }
@@ -77,7 +77,7 @@ export function ChatInterface() {
         const newId = Date.now().toString()
         const newSession: ChatSession = {
           id: newId,
-          title: query.length > 20 ? query.slice(0, 20) + "..." : query,
+          title: query,
           date: new Date().toLocaleDateString("ja-JP"),
           preview: query,
         }
