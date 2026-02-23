@@ -4,6 +4,7 @@ import {
   streamText,
   UIMessage,
 } from "ai"
+import { openai } from "@ai-sdk/openai"
 import { buildSystemPrompt } from "@/lib/mock-data"
 
 export const maxDuration = 30
@@ -12,7 +13,7 @@ export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json()
 
   const result = streamText({
-    model: "anthropic/claude-sonnet-4-20250514",
+    model: openai("gpt-4o"),
     system: buildSystemPrompt(),
     messages: await convertToModelMessages(messages),
     abortSignal: req.signal,
