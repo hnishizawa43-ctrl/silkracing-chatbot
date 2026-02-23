@@ -12,14 +12,20 @@ function getMessageText(message: UIMessage): string {
     .join("")
 }
 
-const URL_REGEX = /(https?:\/\/[a-zA-Z0-9\-._~:/?#[\]@!$&'()*+,;=%]+)/g
+// マークダウンリンク [text](url) またはプレーンURL を検出
+const MD_LINK_REGEX = /\[([^\]]*)\]\((https?:\/\/[^)]+)\)/g
+const PLAIN_URL_REGEX = /(https?:\/\/[a-zA-Z0-9\-._~:/?#@!$&'*+,;=%]+)/g
 
 function LinkifiedText({ text }: { text: string }) {
-  const parts = text.split(URL_REGEX)
+  // まずマークダウンリンクをプレーンURLに変換
+  const cleaned = text.replace(MD_LINK_REGEX, "$2")
+
+  // プレーンURLをリンク化
+  const parts = cleaned.split(PLAIN_URL_REGEX)
   return (
     <>
       {parts.map((part, i) =>
-        URL_REGEX.test(part) ? (
+        PLAIN_URL_REGEX.test(part) ? (
           <a
             key={i}
             href={part}
