@@ -23,41 +23,44 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
     }
   }, [value])
 
-  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    // IME変換中は何もしない
-    if (e.nativeEvent.isComposing) return
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+      // IME変換中は何もしない
+      if (e.nativeEvent.isComposing) return
 
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault()
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault()
 
-      const now = Date.now()
-      const timeSinceLastEnter = now - lastEnterTimeRef.current
-      lastEnterTimeRef.current = now
+        const now = Date.now()
+        const timeSinceLastEnter = now - lastEnterTimeRef.current
+        lastEnterTimeRef.current = now
 
-      // 500ms以内にEnterが2回押された場合 → 送信
-      if (timeSinceLastEnter < 500) {
-        const cleanValue = value.replace(/\n$/, "")
-        if (cleanValue.trim() && !isLoading) {
-          onChange(cleanValue)
-          setTimeout(() => onSubmit(), 0)
+        // 500ms以内にEnterが2回押された場合 → 送信
+        if (timeSinceLastEnter < 500) {
+          const cleanValue = value.replace(/\n$/, "")
+          if (cleanValue.trim() && !isLoading) {
+            onChange(cleanValue)
+            setTimeout(() => onSubmit(), 0)
+          }
+          lastEnterTimeRef.current = 0
+          return
         }
-        lastEnterTimeRef.current = 0
-        return
-      }
 
-      // 1回目のEnter → 改行を挿入
-      const ta = textareaRef.current
-      if (ta) {
-        const start = ta.selectionStart
-        const end = ta.selectionEnd
-        const newValue = value.substring(0, start) + "\n" + value.substring(end)
-        onChange(newValue)
-        requestAnimationFrame(() => {
-          ta.selectionStart = ta.selectionEnd = start + 1
-        })
+        // 1回目のEnter → 改行を挿入
+        const ta = textareaRef.current
+        if (ta) {
+          const start = ta.selectionStart
+          const end = ta.selectionEnd
+          const newValue = value.substring(0, start) + "\n" + value.substring(end)
+          onChange(newValue)
+          requestAnimationFrame(() => {
+            ta.selectionStart = ta.selectionEnd = start + 1
+          })
+        }
       }
-    }
-  }, [value, isLoading, onChange, onSubmit])
+    },
+    [value, isLoading, onChange, onSubmit]
+  )
 
   const canSend = value.trim().length > 0 && !isLoading
 
@@ -76,7 +79,7 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
             value={value}
             onChange={(e) => onChange(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder={"メッセージを入力..."}
+            placeholder="メッセージを入力..."
             disabled={isLoading}
             rows={1}
             className="w-full resize-none rounded-xl border border-input bg-secondary px-3.5 py-2.5 text-sm text-secondary-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring/50 disabled:opacity-50"
@@ -93,7 +96,7 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
           )}
         >
           <ArrowUp className="h-4 w-4" />
-          <span className="sr-only">{"送信"}</span>
+          <span className="sr-only">送信</span>
         </button>
       </form>
       <p className="mx-auto mt-1 max-w-2xl text-center text-[10px] text-muted-foreground/50">
