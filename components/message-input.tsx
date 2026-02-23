@@ -24,24 +24,40 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
   }, [value])
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+    // IME変換中は何もしない
+    if (e.nativeEvent.isComposing) return
+
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault() // 常にデフォルト動作を防止
+
       const now = Date.now()
       const timeSinceLastEnter = now - lastEnterTimeRef.current
       lastEnterTimeRef.current = now
 
-      // If Enter was pressed within 500ms of the last Enter, send the message
+      // 500ms以内にEnterが2回押された場合 → 送信
       if (timeSinceLastEnter < 500) {
-        e.preventDefault()
-        // Remove the trailing newline that was added by the first Enter press
-        const trimmedValue = value.replace(/\n$/, "")
-        if (trimmedValue.trim() && !isLoading) {
-          onChange(trimmedValue)
-          // Use setTimeout to ensure state update before submit
+        // 末尾の改行を除去してから送信
+        const cleanValue = value.replace(/\n$/, "")
+        if (cleanValue.trim() && !isLoading) {
+          onChange(cleanValue)
           setTimeout(() => onSubmit(), 0)
         }
+        lastEnterTimeRef.current = 0 // リセット
         return
       }
-      // First Enter press: allow default behavior (newline)
+
+      // 1回目のEnter → 改行を挿入
+      const ta = textareaRef.current
+      if (ta) {
+        const start = ta.selectionStart
+        const end = ta.selectionEnd
+        const newValue = value.substring(0, start) + "\n" + value.substring(end)
+        onChange(newValue)
+        // カーソル位置を改行後に設定
+        requestAnimationFrame(() => {
+          ta.selectionStart = ta.selectionEnd = start + 1
+        })
+      }
     }
   }, [value, isLoading, onChange, onSubmit])
 
