@@ -12,7 +12,7 @@ function getMessageText(message: UIMessage): string {
     .join("")
 }
 
-const URL_REGEX = /(https?:\/\/[^\s)]+)/g
+const URL_REGEX = /(https?:\/\/[a-zA-Z0-9\-._~:/?#[\]@!$&'()*+,;=%]+)/g
 
 function LinkifiedText({ text }: { text: string }) {
   const parts = text.split(URL_REGEX)
