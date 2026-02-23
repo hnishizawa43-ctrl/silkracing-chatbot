@@ -28,7 +28,9 @@ export function DemoHomepage() {
         <p className="text-center text-sm leading-relaxed text-gray-400">
           {"※デモ画面です"}
           <br />
-          {"右下のチャットアイコンをクリックしてAIアシスタントをお試しください"}
+          {"右下のチャットアイコンをクリックして"}
+          <br />
+          {"AIアシスタントをお試しください"}
         </p>
       </main>
     </div>
