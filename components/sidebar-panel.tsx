@@ -2,11 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import {
-  Plus,
-  MessageSquare,
-  X,
-} from "lucide-react"
+import { Plus, MessageSquare, X } from "lucide-react"
 
 export interface ChatSession {
   id: string
@@ -15,7 +11,7 @@ export interface ChatSession {
   preview: string
 }
 
-interface ChatSidebarProps {
+interface SidebarPanelProps {
   sessions: ChatSession[]
   activeSessionId: string | null
   onSelectSession: (id: string) => void
@@ -24,14 +20,14 @@ interface ChatSidebarProps {
   onClose: () => void
 }
 
-export function ChatSidebar({
+export function SidebarPanel({
   sessions,
   activeSessionId,
   onSelectSession,
   onNewChat,
   isOpen,
   onClose,
-}: ChatSidebarProps) {
+}: SidebarPanelProps) {
   return (
     <>
       {isOpen && (
@@ -40,14 +36,12 @@ export function ChatSidebar({
           onClick={onClose}
         />
       )}
-
       <aside
         className={cn(
           "fixed inset-y-0 left-0 z-50 flex w-[280px] flex-col bg-sidebar text-sidebar-foreground transition-transform duration-200 ease-out",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        {/* Header */}
         <div className="flex items-center justify-between border-b border-sidebar-border px-4 py-3">
           <h2 className="text-[13px] font-semibold tracking-tight">
             {"チャット履歴"}
@@ -60,8 +54,6 @@ export function ChatSidebar({
             <X className="h-4 w-4" />
           </button>
         </div>
-
-        {/* New Chat Button */}
         <div className="px-3 pt-3 pb-1">
           <button
             onClick={onNewChat}
@@ -71,8 +63,6 @@ export function ChatSidebar({
             <span>{"新しいチャット"}</span>
           </button>
         </div>
-
-        {/* Session List */}
         <ScrollArea className="flex-1 px-2 py-2">
           {sessions.length === 0 ? (
             <p className="px-3 py-6 text-center text-[12px] text-sidebar-foreground/30">
@@ -101,8 +91,6 @@ export function ChatSidebar({
             </div>
           )}
         </ScrollArea>
-
-        {/* Footer spacer for safe area */}
         <div className="pb-[env(safe-area-inset-bottom)]" />
       </aside>
     </>

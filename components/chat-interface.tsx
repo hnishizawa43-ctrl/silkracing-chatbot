@@ -4,7 +4,7 @@ import { useState, useCallback, useRef } from "react"
 import { useChat } from "@ai-sdk/react"
 import { DefaultChatTransport } from "ai"
 import type { UIMessage } from "ai"
-import { ChatSidebar, type ChatSession } from "@/components/chat-sidebar"
+import { SidebarPanel, type ChatSession } from "@/components/sidebar-panel"
 import { MessageList } from "@/components/message-list"
 import { MessageInput } from "@/components/message-input"
 import { QuickActions } from "@/components/quick-actions"
@@ -117,7 +117,7 @@ export function ChatInterface() {
   return (
     <div className="flex h-full w-full overflow-hidden bg-background">
       {/* Sidebar */}
-      <ChatSidebar
+      <SidebarPanel
         sessions={sessions}
         activeSessionId={activeSessionId}
         onSelectSession={handleSelectSession}
