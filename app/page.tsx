@@ -1,11 +1,19 @@
-import { ChatInterface } from "@/components/chat-interface"
+import { ChatWidget } from "@/components/chat-widget"
 
 export default function Home() {
   return (
-    <div className="flex min-h-dvh items-center justify-center bg-secondary p-4">
-      <div className="flex h-[min(700px,calc(100dvh-2rem))] w-full max-w-[420px] flex-col overflow-hidden rounded-2xl bg-background shadow-2xl ring-1 ring-border/50">
-        <ChatInterface />
+    <main className="flex min-h-dvh flex-col items-center justify-center bg-secondary px-4">
+      <div className="flex flex-col items-center gap-4 text-center">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">
+          Silk Racing AI
+        </h1>
+        <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
+          {"※デモ画面です"}
+          <br />
+          {"右下のチャットアイコンをクリックしてAIアシスタントをお試しください"}
+        </p>
       </div>
-    </div>
+      <ChatWidget />
+    </main>
   )
 }
