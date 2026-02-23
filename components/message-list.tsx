@@ -12,6 +12,31 @@ function getMessageText(message: UIMessage): string {
     .join("")
 }
 
+const URL_REGEX = /(https?:\/\/[^\s)]+)/g
+
+function LinkifiedText({ text }: { text: string }) {
+  const parts = text.split(URL_REGEX)
+  return (
+    <>
+      {parts.map((part, i) =>
+        URL_REGEX.test(part) ? (
+          <a
+            key={i}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline underline-offset-2 hover:text-primary/80 break-all"
+          >
+            {part}
+          </a>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  )
+}
+
 interface MessageListProps {
   messages: UIMessage[]
   isLoading: boolean
@@ -56,7 +81,9 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                   : "rounded-bl-md bg-secondary text-secondary-foreground ring-1 ring-border"
               )}
             >
-              <div className="whitespace-pre-wrap break-words">{text}</div>
+              <div className="whitespace-pre-wrap break-words">
+                {isUser ? text : <LinkifiedText text={text} />}
+              </div>
             </div>
           </div>
         )

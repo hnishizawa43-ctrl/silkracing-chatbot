@@ -75,9 +75,7 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
           <span className="sr-only">{"送信"}</span>
         </button>
       </form>
-      <p className="mx-auto mt-1.5 max-w-2xl text-center text-[10px] text-muted-foreground/50">
-{"Enterで送信 / Shift+Enterで改行 / AIの回答は参考情報です"}
-      </p>
+
     </div>
   )
 }
