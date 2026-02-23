@@ -13,11 +13,7 @@ interface MessageInputProps {
 
 export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
-<<<<<<< HEAD
-  const isSubmittingRef = useRef(false)
-=======
   const lastEnterTimeRef = useRef<number>(0)
->>>>>>> origin/v0/hnishizawa43-ctrl-aaea7b7a
 
   useEffect(() => {
     const ta = textareaRef.current
@@ -32,15 +28,6 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
     if (e.nativeEvent.isComposing) return
 
     if (e.key === "Enter" && !e.shiftKey) {
-<<<<<<< HEAD
-      e.preventDefault()
-      if (value.trim() && !isLoading && !isSubmittingRef.current) {
-        isSubmittingRef.current = true
-        onSubmit()
-        setTimeout(() => {
-          isSubmittingRef.current = false
-        }, 1000)
-=======
       e.preventDefault() // 常にデフォルト動作を防止
 
       const now = Date.now()
@@ -70,7 +57,6 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
         requestAnimationFrame(() => {
           ta.selectionStart = ta.selectionEnd = start + 1
         })
->>>>>>> origin/v0/hnishizawa43-ctrl-aaea7b7a
       }
     }
   }, [value, isLoading, onChange, onSubmit])
