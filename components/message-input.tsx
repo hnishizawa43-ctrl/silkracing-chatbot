@@ -19,7 +19,7 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
     const ta = textareaRef.current
     if (ta) {
       ta.style.height = "auto"
-      ta.style.height = `${Math.min(ta.scrollHeight, 140)}px`
+      ta.style.height = `${Math.min(ta.scrollHeight, 100)}px`
     }
   }, [value])
 
@@ -62,7 +62,7 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
   const canSend = value.trim().length > 0 && !isLoading
 
   return (
-    <div className="border-t border-border bg-background px-3 py-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))]">
+    <div className="border-t border-border bg-background px-3 py-1.5 pb-[calc(0.375rem+env(safe-area-inset-bottom))]">
       <form
         onSubmit={(e) => {
           e.preventDefault()
