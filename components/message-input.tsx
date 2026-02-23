@@ -13,11 +13,7 @@ interface MessageInputProps {
 
 export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
-<<<<<<< HEAD
-  const isSubmittingRef = useRef(false)
-=======
   const lastEnterTimeRef = useRef<number>(0)
->>>>>>> origin/v0/hnishizawa43-ctrl-aaea7b7a
 
   useEffect(() => {
     const ta = textareaRef.current
@@ -32,16 +28,7 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
     if (e.nativeEvent.isComposing) return
 
     if (e.key === "Enter" && !e.shiftKey) {
-<<<<<<< HEAD
       e.preventDefault()
-      if (value.trim() && !isLoading && !isSubmittingRef.current) {
-        isSubmittingRef.current = true
-        onSubmit()
-        setTimeout(() => {
-          isSubmittingRef.current = false
-        }, 1000)
-=======
-      e.preventDefault() // 常にデフォルト動作を防止
 
       const now = Date.now()
       const timeSinceLastEnter = now - lastEnterTimeRef.current
@@ -49,13 +36,12 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
 
       // 500ms以内にEnterが2回押された場合 → 送信
       if (timeSinceLastEnter < 500) {
-        // 末尾の改行を除去してから送信
         const cleanValue = value.replace(/\n$/, "")
         if (cleanValue.trim() && !isLoading) {
           onChange(cleanValue)
           setTimeout(() => onSubmit(), 0)
         }
-        lastEnterTimeRef.current = 0 // リセット
+        lastEnterTimeRef.current = 0
         return
       }
 
@@ -66,11 +52,9 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
         const end = ta.selectionEnd
         const newValue = value.substring(0, start) + "\n" + value.substring(end)
         onChange(newValue)
-        // カーソル位置を改行後に設定
         requestAnimationFrame(() => {
           ta.selectionStart = ta.selectionEnd = start + 1
         })
->>>>>>> origin/v0/hnishizawa43-ctrl-aaea7b7a
       }
     }
   }, [value, isLoading, onChange, onSubmit])
