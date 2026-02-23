@@ -329,10 +329,19 @@ export function buildSystemPrompt(): string {
 「公式サイトをご確認ください」ではなく「公式サイト（ https://www.silkhorseclub.jp/ ）をご確認ください」のようにURLを含めてください。
 
 【関連URL一覧】
-- シルク・ホースクラブ公式サイト: https://www.silkhorseclub.jp/
-- マイページ（会員ログイン）: https://www.silkhorseclub.jp/ のログインフォームから
-- はじめての方へ・入会案内: https://www.silkhorseclub.jp/guide/
-- お問い合わせ: https://www.silkhorseclub.jp/contact/
+- 公式サイトトップ: https://www.silkhorseclub.jp/
+- マイページ（会員ログイン）: https://www.silkhorseclub.jp/ トップページのログインフォームから
+- はじめての方へ（入会ガイドトップ）: https://www.silkhorseclub.jp/beginner
+- ご入会までの流れと特典: https://www.silkhorseclub.jp/beginner/entry_flow/
+- SFunC利用登録について: https://www.silkhorseclub.jp/beginner/sfunc/
+- 入会のお申し込みについて: https://www.silkhorseclub.jp/beginner/member_application
+- 活躍馬: https://www.silkhorseclub.jp/beginner/representative_horse/
+- 会社概要: https://www.silkhorseclub.jp/company/
+- 募集の流れ: https://www.silkhorseclub.jp/beginner/flow
+- 出資と分配の仕組み: https://www.silkhorseclub.jp/beginner/mechanism
+- 募集馬の見方: https://www.silkhorseclub.jp/beginner/how_to_watch/
+- よくあるご質問（FAQ）: https://www.silkhorseclub.jp/qa
+- ご意見・お問い合わせ（要ログイン）: https://www.silkhorseclub.jp/contact/
 - JRA公式サイト: https://www.jra.go.jp/
 - netkeiba（競馬情報）: https://www.netkeiba.com/
 
@@ -349,7 +358,7 @@ export function buildSystemPrompt(): string {
 - 2013年に法人名を「有限会社シルクレーシング」に改称
 - 資本金: 1,000万円
 - 登録番号: 関東財務局長（金商）第1591号
-- JRA馬主登録のクラブ法人（匿名組合契約に基づく競走馬ファンド）
+- JRA馬主登録のクラブ法人（匿名組合��約に基づく競走馬ファンド）
 - 勝負服: 水色、赤玉霰、袖赤一本輪
 - 募集口数: 500口
 - ノーザンファーム・白老ファーム生産馬が中心
