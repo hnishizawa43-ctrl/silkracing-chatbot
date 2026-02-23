@@ -75,7 +75,6 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
           <span className="sr-only">{"送信"}</span>
         </button>
       </form>
-
     </div>
   )
 }
