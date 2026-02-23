@@ -52,10 +52,10 @@
     bottom: "100px",
     right: "24px",
     zIndex: "2147483647",
-    width: "400px",
-    height: "600px",
+    width: "380px",
+    height: "min(560px, calc(100dvh - 140px))",
     maxWidth: "calc(100vw - 32px)",
-    maxHeight: "calc(100dvh - 120px)",
+    maxHeight: "calc(100dvh - 140px)",
     borderRadius: "16px",
     overflow: "hidden",
     background: "#ffffff",
@@ -157,10 +157,10 @@
       Object.assign(container.style, {
         bottom: "100px",
         right: "24px",
-        width: "400px",
-        height: "600px",
+        width: "380px",
+        height: "min(560px, calc(100dvh - 140px))",
         maxWidth: "calc(100vw - 32px)",
-        maxHeight: "calc(100dvh - 120px)",
+        maxHeight: "calc(100dvh - 140px)",
         borderRadius: "16px",
       });
       iframe.style.borderRadius = "16px";
