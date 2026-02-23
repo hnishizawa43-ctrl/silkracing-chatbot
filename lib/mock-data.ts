@@ -370,7 +370,7 @@ export const faqData = [
     category: "出資申込",
     question: "1口いくらですか？",
     answer:
-      "1口の価格は募集総額を500口で割った金額です。例えば総額6,000万円の馬なら1口12万円、総額4,000万円なら1口8万円です。馬によって異なりますので、募集馬情報をご確認ください。",
+      "1口の��格は募集総額を500口で割った金額です。例えば総額6,000万円の馬なら1口12万円、総額4,000万円なら1口8万円です。馬によって異なりますので、募集馬情報をご確認ください。",
   },
   {
     category: "出資申込",
@@ -413,7 +413,7 @@ export const faqData = [
     category: "確定申告・交付書面",
     question: "赤字（損失）が出た場合、他の所得と損益通算できますか？",
     answer:
-      "一口馬主の所得は「��所得」に分類されるため、給与所得や事業所得との損益通算はできません。ただし、同じ雑所得内（複数の出資馬間）での損益通算は可能です。",
+      "一口馬主の所��は「��所得」に分類されるため、給与所得や事業所得との損益通算はできません。ただし、同じ雑所得内（複数の出資馬間）での損益通算は可能です。",
   },
   // ===== ご精算について =====
   {
@@ -661,26 +661,27 @@ ${faqInfo}
 
 【公式リンク集 - 回答時に必ず該当URLを案内すること】
 - トップページ: https://www.silkhorseclub.jp/
-- マイページログイン: https://www.silkhorseclub.jp/mypage
-- 新規入会案内: https://www.silkhorseclub.jp/beginner
-- 入会の仕組み（費用体系等）: https://www.silkhorseclub.jp/beginner/mechanism
-- 入会申込フォーム: https://www.silkhorseclub.jp/entry
-- SFunC（Silk Fun Club）: https://sfunc.silkhorseclub.jp/
+- はじめての方へ（入会案内トップ）: https://www.silkhorseclub.jp/beginner
+- 愛馬に安心して出資できるよろこび: https://www.silkhorseclub.jp/beginner/investment
+- 愛馬の成長を見守るよろこび: https://www.silkhorseclub.jp/beginner/growth
+- 愛馬がつなぐ仲間と出会うよろこび: https://www.silkhorseclub.jp/beginner/community
+- 活躍馬: https://www.silkhorseclub.jp/beginner/horse
+- 会社概要: https://www.silkhorseclub.jp/beginner/company
+- ご入会までの流れと特典: https://www.silkhorseclub.jp/beginner/member
+- SFunC利用登録について: https://www.silkhorseclub.jp/beginner/sfunc
+- 入会のお申し込みについて: https://www.silkhorseclub.jp/beginner/member_application
+- 募集の流れ: https://www.silkhorseclub.jp/beginner/offer
+- 出資と分配の仕組み: https://www.silkhorseclub.jp/beginner/mechanism
+- 募集馬の見方: https://www.silkhorseclub.jp/beginner/how_to_read
 - よくあるご質問（FAQ）: https://www.silkhorseclub.jp/qa
-- 募集馬一覧: https://www.silkhorseclub.jp/horse/offer
-- 所属馬一覧: https://www.silkhorseclub.jp/horse/belong
-- 出走予定: https://www.silkhorseclub.jp/race/schedule
-- レース結果: https://www.silkhorseclub.jp/race/result
-- クラブ概要（会社情報）: https://www.silkhorseclub.jp/about
-- お問い合わせ: https://www.silkhorseclub.jp/contact
-- 契約締結前交付書面（重要事項）: https://www.silkhorseclub.jp/disclosure
+- SFunC（Silk Fun Club）サイト: https://sfunc.silkhorseclub.jp/
 - JRA公式サイト: https://www.jra.go.jp/
 - ノーザンホースパーク: https://www.northern-horsepark.jp/
 
 上記の情報を中心に回答してください。以下のガイドラインに従ってください:
 
 1. 【具体的に回答】費用、手続き、スケジュールなど、数字や手順を含めた具体的な回答を心がけてください。
-2. 【カテゴリ横断】質問が複数カテゴリにまたがる場合は、関連する全ての情報を統合して回答してください。
+2. 【カテゴリ横断】質問が複数カテゴリにまたがる場合は、関連する全ての情報を統合し��回答してください。
 3. 【計算例】分配金や費用の質問には、可能な範囲で具体的な計算例を示してください。
 4. 【一般知識も活用】シルクレーシングの歴史、代表者、名馬、競馬全般の知識も活用して回答してください。
 5. 【正確性】確信のない情報は「公式サイトまたはマイページでご確認ください」と案内してください。
