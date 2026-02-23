@@ -13,6 +13,7 @@ interface MessageInputProps {
 
 export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const isSubmittingRef = useRef(false)
 
   useEffect(() => {
     const ta = textareaRef.current
@@ -25,8 +26,12 @@ export function MessageInput({ value, onChange, onSubmit, isLoading }: MessageIn
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault()
-      if (value.trim() && !isLoading) {
+      if (value.trim() && !isLoading && !isSubmittingRef.current) {
+        isSubmittingRef.current = true
         onSubmit()
+        setTimeout(() => {
+          isSubmittingRef.current = false
+        }, 1000)
       }
     }
   }
