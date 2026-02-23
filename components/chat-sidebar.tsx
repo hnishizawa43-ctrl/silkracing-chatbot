@@ -40,6 +40,7 @@ export function ChatSidebar({
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
+        {/* Header */}
         <div className="flex items-center justify-between border-b border-sidebar-border px-4 py-3.5">
           <div className="flex items-center gap-2.5">
             <div className="flex h-7 w-7 items-center justify-center rounded-full bg-sidebar-primary">
@@ -57,12 +58,13 @@ export function ChatSidebar({
           <button
             className="flex h-8 w-8 items-center justify-center rounded-md text-sidebar-foreground/60 hover:bg-sidebar-accent hover:text-sidebar-foreground"
             onClick={onClose}
-            aria-label="閉じる"
+            aria-label="Close sidebar"
           >
             <X className="h-4 w-4" />
           </button>
         </div>
 
+        {/* New Chat Button */}
         <div className="px-3 py-2.5">
           <button
             onClick={onNewChat}
@@ -73,6 +75,7 @@ export function ChatSidebar({
           </button>
         </div>
 
+        {/* Session List */}
         <ScrollArea className="flex-1 px-3">
           <div className="flex flex-col gap-0.5 pb-4">
             {sessions.length === 0 && (
@@ -101,6 +104,7 @@ export function ChatSidebar({
           </div>
         </ScrollArea>
 
+        {/* Safe area spacer */}
         <div className="pb-[env(safe-area-inset-bottom)]" />
       </aside>
     </>
