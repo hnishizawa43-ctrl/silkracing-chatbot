@@ -284,7 +284,7 @@ export const faqData = [
     answer:
       "具体的な審査基準は公開されておりませんが、入会にあたっては所定の審査がございます。詳しくは公式サイトの入会ページまたはお問い合わせフォームからご確認ください。",
   },
-  // ===== ログイン・ホームページについて =====
+  // ===== ���グイン・ホームページについて =====
   {
     category: "ログイン・HP",
     question: "ログインできません",
@@ -407,13 +407,13 @@ export const faqData = [
     category: "確定申告・交付書面",
     question: "源泉徴収はされますか？",
     answer:
-      "はい。利益分配額に対して20.42%（復興特別所得税含む）の源泉徴収が行われます。源泉徴収税額は交付書面に記載されています。また、JRAが賞金支払い時に行う源泉徴収と、クラブ法人が愛馬会法人に分配する際の源泉徴収は、翌年4月の年次分配で還付されます。",
+      "はい。利益分配額に対して20.42%（復興特別所得税含む）の源泉徴収が行われます。源泉徴収税額は交付書面に記載されてい��す。また、JRAが賞金支払い時に行う源泉徴収と、クラブ法人が愛馬会法人に分配する際の源泉徴収は、翌年4月の年次分配で還付されます。",
   },
   {
     category: "確定申告・交付書面",
     question: "赤字（損失）が出た場合、他の所得と損益通算できますか？",
     answer:
-      "一口馬主の所得は「雑所得」に分類されるため、給与所得や事業所得との損益通算はできません。ただし、同じ雑所得内（複数の出資馬間）での損益通算は可能です。",
+      "一口馬主の所得は「��所得」に分類されるため、給与所得や事業所得との損益通算はできません。ただし、同じ雑所得内（複数の出資馬間）での損益通算は可能です。",
   },
   // ===== ご精算について =====
   {
@@ -537,7 +537,7 @@ export function buildSystemPrompt(): string {
 - 設立: 1985年（昭和60年）にクラブ法人「有限会社シルク」として創業
 - 2013年に法人名を「有限会社シルクレーシング」に改称
 - 資本金: 1,000万円
-- 登録番号: 関東財務局長（金商）第1591号
+- 登録番号: 関東財務局長（金商）第1591���
 - JRA馬主登録のクラブ法人（匿名組合契約に基づく競走馬ファンド）
 - 勝負服: 水色、赤玉霰、袖赤一本輪
 - 募集口数: 500口
@@ -659,6 +659,24 @@ ${recruitInfo}
 【FAQ】
 ${faqInfo}
 
+【公式リンク集 - 回答時に必ず該当URLを案内すること】
+- トップページ: https://www.silkhorseclub.jp/
+- マイページログイン: https://www.silkhorseclub.jp/mypage
+- 新規入会案内: https://www.silkhorseclub.jp/beginner
+- 入会の仕組み（費用体系等）: https://www.silkhorseclub.jp/beginner/mechanism
+- 入会申込フォーム: https://www.silkhorseclub.jp/entry
+- SFunC（Silk Fun Club）: https://sfunc.silkhorseclub.jp/
+- よくあるご質問（FAQ）: https://www.silkhorseclub.jp/qa
+- 募集馬一覧: https://www.silkhorseclub.jp/horse/offer
+- 所属馬一覧: https://www.silkhorseclub.jp/horse/belong
+- 出走予定: https://www.silkhorseclub.jp/race/schedule
+- レース結果: https://www.silkhorseclub.jp/race/result
+- クラブ概要（会社情報）: https://www.silkhorseclub.jp/about
+- お問い合わせ: https://www.silkhorseclub.jp/contact
+- 契約締結前交付書面（重要事項）: https://www.silkhorseclub.jp/disclosure
+- JRA公式サイト: https://www.jra.go.jp/
+- ノーザンホースパーク: https://www.northern-horsepark.jp/
+
 上記の情報を中心に回答してください。以下のガイドラインに従ってください:
 
 1. 【具体的に回答】費用、手続き、スケジュールなど、数字や手順を含めた具体的な回答を心がけてください。
@@ -666,8 +684,8 @@ ${faqInfo}
 3. 【計算例】分配金や費用の質問には、可能な範囲で具体的な計算例を示してください。
 4. 【一般知識も活用】シルクレーシングの歴史、代表者、名馬、競馬全般の知識も活用して回答してください。
 5. 【正確性】確信のない情報は「公式サイトまたはマイページでご確認ください」と案内してください。
-6. 【公式サイト案内】詳しい手続きが必要な場合は https://www.silkhorseclub.jp/ を案内してください。
+6. 【URLを必ず案内】「詳しくは〜」と言う場合、上記の公式リンク集から該当するURLを必ず含めてください。URLなしで「公式サイトをご確認ください」とだけ言うのは禁止です。
 7. 【問い合わせ先】解決しない場合は https://www.silkhorseclub.jp/contact からお問い合わせいただくよう案内してください。
 
-個人情報や内部機密に関する質問には「申し訳ございません、その情報はお答えしかねます。公式サイトまたはマイページをご確認ください。」と案内してください。`
+個人情報や内部機密に関する質問には「申し訳ございません、その情報はお答えしかねます。公式サイト（https://www.silkhorseclub.jp/）またはマイページ（https://www.silkhorseclub.jp/mypage）をご確認ください。」と案内してください。`
 }
