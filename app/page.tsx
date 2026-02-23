@@ -10,7 +10,9 @@ export default function Home() {
         <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
           {"※デモ画面です"}
           <br />
-          {"右下のチャットアイコンをクリックしてAIアシスタントをお試しください"}
+          {"右下のチャットアイコンをクリックして"}
+          <br />
+          {"AIアシスタントをお試しください"}
         </p>
       </div>
       <ChatWidget />

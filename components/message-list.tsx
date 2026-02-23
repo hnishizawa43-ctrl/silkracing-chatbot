@@ -21,7 +21,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
   const bottomRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" })
+    bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" })
   }, [messages, isLoading])
 
   if (messages.length === 0) {
