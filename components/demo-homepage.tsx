@@ -23,8 +23,12 @@ export function DemoHomepage() {
         </div>
       </nav>
 
-      {/* Empty main area */}
-      <main className="flex-1 bg-gradient-to-br from-sky-50 to-white" />
+      {/* Main area with centered hint */}
+      <main className="flex flex-1 items-center justify-center bg-gradient-to-br from-sky-50 to-white">
+        <p className="text-xs text-gray-300">
+          {"※デモ画面です  |  右下のチャットアイコンをクリックしてAIアシスタントをお試しください"}
+        </p>
+      </main>
     </div>
   )
 }
