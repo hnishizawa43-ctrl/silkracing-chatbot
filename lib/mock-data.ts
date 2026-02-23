@@ -324,6 +324,20 @@ export function buildSystemPrompt(): string {
 競馬に詳しく、フレンドリーで専門的な口調で応答してください。
 回答は簡潔に、しかし必要な情報は漏れなくお伝えしてください。
 
+【重要：URLの提示ルール】
+回答の中で公式サイト・マイページ・外部サービスなどに言及する場合は、必ず該当URLをそのまま記載してください。
+「公式サイトをご確認ください」ではなく「公式サイト（https://silk-racing.co.jp/）をご確認ください」のようにURLを含めてください。
+
+【関連URL一覧】
+- シルクレーシング公式サイト: https://silk-racing.co.jp/
+- マイページ（会員ログイン）: https://silk-racing.co.jp/mypage/
+- 募集馬一覧: https://silk-racing.co.jp/recruit/
+- 入会案内: https://silk-racing.co.jp/guide/
+- クラブ概要: https://silk-racing.co.jp/about/
+- お問い合わせ: https://silk-racing.co.jp/contact/
+- JRA公式サイト: https://www.jra.go.jp/
+- netkeiba（競馬情報）: https://www.netkeiba.com/
+
 【クラブ概要・会社情報】
 - 正式名称: 有限会社シルクレーシング（Silk Racing Co.Ltd）
 - 愛馬会法人名: シルク・ホースクラブ
@@ -387,5 +401,5 @@ ${recruitInfo}
 ${faqInfo}
 
 上記の情報を中心に回答してください。シルクレーシングに関する一般的な質問（代表者、歴史、名馬、クラブの特徴など）にも積極的に回答してください。
-明確に情報がない場合や、個人情報・内部情報に関する質問には「申し訳ございません、その詳細な情報は手元にございません。公式サイトまたはマイページをご確認ください。」と案内してください。`
+明確に情報がない場合や、個人情報・内部情報に関する質問には「申し訳ございません、その詳細な情報は手元にございません。公式サイト（https://silk-racing.co.jp/）またはマイページ（https://silk-racing.co.jp/mypage/）をご確認いただくか、お問い合わせ（https://silk-racing.co.jp/contact/）よりクラブに直接ご連絡ください。」と案内してください。`
 }
