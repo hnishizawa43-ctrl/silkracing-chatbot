@@ -26,7 +26,7 @@
     height: "60px",
     borderRadius: "50%",
     border: "none",
-    background: "#3b82f6",
+    background: "#0284c7",
     color: "#fff",
     cursor: "pointer",
     display: "flex",
