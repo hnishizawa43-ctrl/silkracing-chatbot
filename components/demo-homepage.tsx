@@ -24,9 +24,11 @@ export function DemoHomepage() {
       </nav>
 
       {/* Main area with centered hint */}
-      <main className="flex flex-1 items-center justify-center bg-gradient-to-br from-sky-50 to-white">
-        <p className="text-xs text-gray-300">
-          {"※デモ画面です  |  右下のチャットアイコンをクリックしてAIアシスタントをお試しください"}
+      <main className="flex flex-1 items-center justify-center bg-gradient-to-br from-sky-50 to-white px-6">
+        <p className="text-center text-sm leading-relaxed text-gray-400">
+          {"※デモ画面です"}
+          <br />
+          {"右下のチャットアイコンをクリックしてAIアシスタントをお試しください"}
         </p>
       </main>
     </div>
